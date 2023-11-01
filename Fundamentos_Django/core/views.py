@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+
 from django.shortcuts import render
 import datetime 
 
@@ -7,4 +7,4 @@ import datetime
 
 def hora_sistema(request):
     hora_sistema = datetime.datetime.now()
-    return HttpResponse(hora_sistema)
+    return render(request,'lista_horario.html', context={'hora_sistema':hora_sistema})
