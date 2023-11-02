@@ -1,7 +1,7 @@
 from django import forms
+from .models import Cliente
 
-class ClienteForm(forms.Form):
-    nome = forms.CharField(label="Nome do cliente", max_length=100) # para strings
-    idade = forms.IntegerField(label="Idade do cliente") # para numeros inteiros
-    data_nascimento = forms.DateField(label="Data de nascimento do cliente") # para datas
-    is_ativo = forms.BooleanField(label="Se o cliente está ativo") # para resultados booleanos (sim/não)
+class ClienteForm(forms.ModelForm):
+   class Meta:
+      model = Cliente
+      fields = ('nome', 'idade', 'data_nascimento', 'is_ativo') # em caso de todos os campos usa "__all__"

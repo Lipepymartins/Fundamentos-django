@@ -15,6 +15,7 @@ def exibir_template(request):
     if request.method == "POST":
         form = ClienteForm(request.POST)
         if form.is_valid():
+            form.save()
             return HttpResponseRedirect('hora_sistema')
     form = ClienteForm()
     return render(request, 'form_cliente.html', context={'form': form})
